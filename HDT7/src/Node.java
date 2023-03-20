@@ -4,9 +4,10 @@ public class Node<K, V> {
 	private Node<K, V> right;
 	private Association<K, V> value;
 	
-	public Node() {
+	public Node(Association<K, V> val) {
 		left = null;
 		right = null;
+		value = val;
 	}
 
 	public Node<K, V> getLeft() {
