@@ -44,7 +44,19 @@ public class BinarySearchTree<K, V> {
 
 	public Node<K, V> getRoot() {
 		return Root;
-	}	
+	}
+	
+	public void PrintInOrder(Node<K, V> currentRoot){
+		if (currentRoot == null) {
+			return;
+		}
+		
+		PrintInOrder(currentRoot.getLeft());
+		
+		System.out.println( currentRoot.getValue().getKey() + ", " + currentRoot.getValue().getValue());
+		
+		PrintInOrder(currentRoot.getRight());
+	}
 	
 
 }
