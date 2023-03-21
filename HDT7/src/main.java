@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class main {
@@ -9,6 +10,8 @@ public class main {
 		System.out.println("Hello , World");
 		
 		ArrayList<BinarySearchTree<String, String>> Trees = FileReader();;
+		String[] TextToTranslate = readTxtFileToList();
+		Translator<String, String> translator = new Translator<>();
 		
 		BinarySearchTree<String, String> EngToSpa = Trees.get(0);
 		BinarySearchTree<String, String> SpaToFre = Trees.get(1);
@@ -32,13 +35,12 @@ public class main {
 			switch (option) {
 
 			case "1":
-				System.out.println(EngToSpa.Search(EngToSpa.getRoot(), "a"));
-				System.out.println(EngToSpa.Search(EngToSpa.getRoot(), "DOG"));
-				
+				translator.Translate(EngToSpa, TextToTranslate);
 				
 				break;
 			
 			case "2":
+				translator.Translate(SpaToFre, TextToTranslate);
 				
 				break;
 
@@ -120,9 +122,30 @@ public class main {
 		
 	}
 	
-	public static void TextReader() {
-		
-	}
-	
-	
+    public static String[] readTxtFileToList() {
+    	 ArrayList<String> wordsList = new ArrayList<String>();
+    	 String MyFile = "src/texto.txt";
+    	 
+         try {
+             BufferedReader reader = new BufferedReader(new FileReader(MyFile));
+             String line = reader.readLine();
+             
+             while (line != null) {
+                 String[] words = line.split("\\s+");
+                 for (String word : words) {
+                     if (!word.trim().isEmpty()) {
+                         wordsList.add(word.trim());
+                     }
+                 }
+                 line = reader.readLine();
+             }
+             reader.close();
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         
+         String[] wordsArray = new String[wordsList.size()];
+         wordsArray = wordsList.toArray(wordsArray);
+         return wordsArray;
+     }	
 }
