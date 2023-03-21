@@ -58,5 +58,23 @@ public class BinarySearchTree<K, V> {
 		PrintInOrder(currentRoot.getRight());
 	}
 	
+	public Node<K, V> Search(Node<K, V> currentRoot, String value){
+		
+		if (currentRoot == null || ((String) currentRoot.getValue().getKey()).equalsIgnoreCase(value)) {
+			return currentRoot;
+		}
+		
+		String rootValue = (String) currentRoot.getValue().getKey();
+		String nodeValue = value;
+		
+		int result = nodeValue.compareTo(rootValue);
+		
+		if(result > 0) {
+			return Search(currentRoot.getRight(), value);
+		}
+		
+		return Search(currentRoot.getLeft(), value);
+	}
+	
 
 }

@@ -32,6 +32,9 @@ public class main {
 			switch (option) {
 
 			case "1":
+				System.out.println(EngToSpa.Search(EngToSpa.getRoot(), "a"));
+				System.out.println(EngToSpa.Search(EngToSpa.getRoot(), "DOG"));
+				
 				
 				break;
 			
@@ -114,6 +117,10 @@ public class main {
 		List.add(EngToSpa);
 		List.add(SpaToFre);
 		return List;
+		
+	}
+	
+	public static void TextReader() {
 		
 	}
 	
