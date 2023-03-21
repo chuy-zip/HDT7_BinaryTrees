@@ -35,12 +35,14 @@ public class main {
 			switch (option) {
 
 			case "1":
-				translator.Translate(EngToSpa, TextToTranslate);
+				System.out.println(translator.Translate(EngToSpa, TextToTranslate));
+				System.out.println("\n");
 				
 				break;
 			
 			case "2":
-				translator.Translate(SpaToFre, TextToTranslate);
+				System.out.println(translator.Translate(SpaToFre, TextToTranslate));
+				System.out.println("\n");
 				
 				break;
 
