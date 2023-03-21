@@ -17,7 +17,7 @@ public class Translator<K, V> {
 			}
 			
 		}
-		
+		Translation = Translation.trim();
 		return Translation;
 	}
 
