@@ -3,13 +3,12 @@ public class BinarySearchTree<K, V> {
 	
 	private Node<K, V> Root;
 	
-	public BinarySearchTree( Association<K, V> value){
-		if (value == null) {
-			System.out.println("Invalid input, node value can not be null");
-			System.exit(0);
-		}
+	public BinarySearchTree(){
+		this.Root = null;
+	}
+	
+	public void InsertRoot(Association<K, V> value) {// this is for setting the root of the binary tree
 		this.Root = new Node<K, V>(value);
-		
 	}
 	
 	public void Insert(Node<K, V> currentRoot, Association<K, V> value) {
@@ -42,5 +41,10 @@ public class BinarySearchTree<K, V> {
 		}
 		
 	}
+
+	public Node<K, V> getRoot() {
+		return Root;
+	}	
+	
 
 }
